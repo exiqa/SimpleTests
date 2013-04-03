@@ -9,9 +9,11 @@ import java.io.IOException;
 public class QAParser {
 	
 	private BufferedReader reader;
+	private File sourceFile;
 		
 	public QAParser() throws FileNotFoundException {
-		reader = new BufferedReader(new FileReader(new File("questions.txt")));
+		sourceFile  = new File("questions.txt"); // default source file
+		reader = new BufferedReader(new FileReader(sourceFile));
 	}
 	
 	public int getNumberOfQuestions() throws IOException {
@@ -39,4 +41,9 @@ public class QAParser {
 		}
 		return question;
 	}
+	
+	public void setSourceFile(File sourceFile) {
+		this.sourceFile = sourceFile;
+	}
+
 }
